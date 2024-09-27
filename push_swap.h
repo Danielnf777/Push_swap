@@ -10,16 +10,20 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-int	checker(t_list *lst);
+int	sorted_list(t_list *lst);
 int     minimum(t_list  *lst);
+int	ft_lstsize(t_list *lst);
 int	maximum(t_list	*lst);
-int	elements_chunk(t_list *lst, int chunk_max);
+t_list	*smallest(t_list *lst);
+int	elements_chunk(t_list *lst, int chunk_max, int min);
 int	check_duplicate(int argc, char **argv);
+int	position_stack_a(t_list *lst, int chunk, int min, int argc);
+int     position(t_list *lst, int numb, int argc);
 t_list	*largest(t_list *lst_b);
 t_list	*ft_lstnew(int argc, char **argv);
 void	hundred(t_list **lst, t_list **lst_b, int argc);
 void	three(t_list **lst);
-void	five(t_list **lst, t_list **lst_b);
+void	five(t_list **lst, t_list **lst_b, int argc);
 void	sa(t_list **head);
 void	sb(t_list **head_b);
 void	ss(t_list **list_a, t_list **list_b);
