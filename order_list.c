@@ -179,6 +179,19 @@ int	position(t_list *lst, int numb, int argc)
 	}
 	return (1);
 }
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
+
 void	hundred(t_list **lst, t_list **lst_b, int argc)
 {
 	int	max;
@@ -187,7 +200,7 @@ void	hundred(t_list **lst, t_list **lst_b, int argc)
 	int	chunk;
 	int	i;
 	int	copy;
-
+	int	size;
 	t_list *larg;
 	t_list *temp;
 
@@ -201,7 +214,7 @@ void	hundred(t_list **lst, t_list **lst_b, int argc)
 	while (i > 0)
 	{
 		i = elements_chunk(*lst, chunk, min);
-		while (i > 0)
+		while (i > 1)
 		{
 			if (!*lst_b && sorted_list(*lst) == 0)
 				return ;
@@ -224,18 +237,25 @@ void	hundred(t_list **lst, t_list **lst_b, int argc)
 				else	
 				{
 
-				
-					temp = *lst_b;
-					while (temp && (*lst)->content < (*lst_b)->content)
-					{	
-						rb(lst_b);
+					size = ft_lstsize(*lst_b);	
+					while (size > 0  && (*lst)->content < (*lst_b)->content)
+					{
+						if ((*lst_b)->next)
+							{
+								rb(lst_b);
+								size--;
+							}
 						if ((*lst)->content > (*lst_b)->content)
 						{
 							pb(lst, lst_b);
 							i--;
 							argc--;
+							size++;
+
+							
 						}
-						temp = temp->next;
+						if (size == 0)
+							pb(lst, lst_b);
 					}
 				}
 			}
@@ -245,7 +265,6 @@ void	hundred(t_list **lst, t_list **lst_b, int argc)
 				rra(lst);
 
 		}
-		temp = *lst_b;
 //		if (argc < 3)
 //			{
 //				pb(lst, lst_b);
