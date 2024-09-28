@@ -1,4 +1,14 @@
 #include "push_swap.h"
+void p(t_list *head) 
+{
+    t_list *current = head;
+    while (current != NULL)
+    {
+        printf("%d -> ", current->content);
+        current = current->next;
+    }
+    printf("NULL\n");
+}
 
 t_list	*ft_lstlast(t_list *lst)
 {
@@ -240,20 +250,24 @@ void	hundred(t_list **lst, t_list **lst_b, int argc)
 					size = ft_lstsize(*lst_b);	
 					while (size > 0  && (*lst)->content < (*lst_b)->content)
 					{
-						if ((*lst_b)->next)
-							{
-								rb(lst_b);
-								size--;
-							}
-						if ((*lst)->content > (*lst_b)->content)
+						if ((*lst_b)->next == NULL)
 						{
 							pb(lst, lst_b);
-							i--;
-							argc--;
-							size++;
-
-							
+							sb(lst_b);
 						}
+						else if ((*lst_b)->next)
+							{
+								rb(lst_b);
+								if ((*lst)->content > (*lst_b)->content)
+								{
+									pb(lst, lst_b);
+									i--;
+									argc--;
+									size++;
+								}
+								else
+									size--;
+							}
 						if (size == 0)
 							pb(lst, lst_b);
 					}
