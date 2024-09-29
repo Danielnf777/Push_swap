@@ -1,0 +1,21 @@
+void	control_errors(int argc, char **argv)
+{
+	if (argc < 3)
+	{
+		printf("Error\n");
+		exit (1);
+	}
+	check_duplicate(argc, argv);
+	non_digit(argc, argv);
+}
+
+int main(int argc, char  **argv)
+{
+	t_list	*a;
+	t_list	*b;
+	t_list	*temp;
+
+	b = NULL;
+	a = ft_lstnew(argc, argv);
+	control_errors(argc,argv);
+	algorithm(&a, &b , argc);
