@@ -1,0 +1,49 @@
+	while (i > 0)
+	{
+		if ((*lst)->content >= min && (*lst)->content < chunk )
+		{
+
+			if (!*lst_b)
+			{
+				pb(lst, lst_b);
+				i--;
+			}
+			larg = largest(*lst_b);
+			bigest = larg->content;
+			else if (!(*lst_b)->next)
+				{
+					pb(lst, lst_b);
+					i--;
+				}
+			else if (size == 2)
+
+			else if ((*lst)->content > bigest)
+			{
+				while ((*lst_b)->content != bigest)
+				{
+					rb(lst_b);
+					if ((*lst_b)->content == bigest)
+					{
+						pb(lst_b);
+						i--;
+					}
+				}
+			}
+			else if ((*lst)->content > (*lst_b)->content && (*lst)->content < last->content)
+			{
+				pb(lst, lst_b);
+				i--;
+				argc--;
+			}
+			else
+				rb(lst_b);
+		}
+		ra(lst);
+
+	}
+		temp = *lst_b;
+		while ((temp)->next)
+		{
+			printf("temp %d\n", (temp)->content);
+			temp = temp->next;
+		}
