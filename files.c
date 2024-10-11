@@ -6,7 +6,7 @@
 /*   By: danavarr <danavarr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:40:46 by danavarr          #+#    #+#             */
-/*   Updated: 2024/09/17 18:03:41 by danavarr         ###   ########.fr       */
+/*   Updated: 2024/10/11 06:27:24 by danavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -47,8 +47,6 @@ void	pb(t_list **lst, t_list **lst_b)
 	if (!*lst)
 		return ;
 	t_list	*temp;
-	t_list	*temp_b;
-	t_list	*previous;
 
 	temp = malloc(sizeof(t_list));
 	if (!temp)
@@ -58,6 +56,7 @@ void	pb(t_list **lst, t_list **lst_b)
 		//exit((printf("Error\n") * 0) + 1);
 	}
 	temp->content = (*lst)->content;
+	temp->index = (*lst)->index;
 	temp->next = *lst_b;
 	*lst_b = temp;
 	temp = (*lst)->next;
@@ -68,7 +67,6 @@ void	pb(t_list **lst, t_list **lst_b)
 
 void	pa(t_list **lst_b, t_list **lst)
 {
-	t_list	*previous;
 	t_list	*temp;
 
 	if (!*lst_b)
@@ -76,6 +74,7 @@ void	pa(t_list **lst_b, t_list **lst)
 	temp = malloc(sizeof(t_list));
 
 	temp->content = (*lst_b)->content;
+	temp->index = (*lst_b)->index;
 	temp->next = *lst;
 	*lst = temp;
 
@@ -173,8 +172,3 @@ void	rrr(t_list **lst_a, t_list **lst_b)
 	rrb(lst_b);
 	printf("rrr\n");
 }
-
-
-
-	
-
