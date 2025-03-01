@@ -1,0 +1,101 @@
+### Understanding the Code Step-by-Step
+
+Let’s break this down and explain each part of the code to help you understand how it works.
+
+
+1. `control_errors` Function
+
+    Purpose: This function validates the arguments passed to the program.
+
+    - Checks if there are fewer than 2 arguments. If true, exits the program with `-1`.
+    
+    - Calls various validation functions (`check_duplicate`, `non_digit`, `int_max`) to ensure that the input is valid.
+
+
+2. `algorithm` Function
+
+    Purpose: This function determines which algorithm to use based on the number of arguments.
+
+    - If there are 3 arguments, it calls `three()`.
+    
+    - If the arguments are less than or equal to 6, it calls `five()`.
+    
+    - If the arguments are greater than 6, it calls `radix()`.
+
+
+3. `free_split` Function
+
+    Purpose: This function frees the memory allocated for the split arguments.
+
+    - Iterates through all the arguments and frees each of them.
+    
+    - Frees the memory of the argument array itself.
+
+
+4. `main` Function
+
+    Purpose: This is the main function that manages the program flow.
+
+    - If only one argument is passed, it splits the string and updates `argc` and `argv`.
+    
+    - Calls `control_errors` to validate the arguments.
+    
+    - Creates a new linked list `a` with the input arguments.
+    
+    - If memory was allocated for splitting, it frees the memory after use.
+    
+    - Calls `get_index()` to assign indices to the list.
+    
+    - Calls the appropriate sorting algorithm using `algorithm()`.
+    
+    - Clears the linked lists `a` and `b`.
+
+
+5. `ft_lstclear` Function
+
+    Purpose: This function frees all nodes in a linked list.
+
+    - Iterates through the linked list, freeing each node.
+
+
+6. `ft_lstnew_b` Function
+
+    Purpose: This function creates a new linked list with `argc - 2` nodes.
+
+    - Starts by creating the first node.
+    
+    - Loops through the remaining arguments and creates new nodes, linking them together.
+
+
+7. `first_node` Function
+
+    Purpose: This function creates the first node of the linked list.
+
+    - Creates a node using the value from `argv` and initializes it with `ft_atol`.
+
+
+8. `ft_lstnew` Function
+
+    Purpose: This function creates a new linked list from the given arguments.
+
+    - Calls `first_node` to create the first node.
+    
+    - Loops through the rest of the arguments to create additional nodes and links them together.
+
+
+9. `sa`, `sb`, `ss`, `pb`, `pa` Functions
+
+    Purpose: These are the sorting operations for the linked lists.
+
+    - `sa`: Swaps the first two elements of list `a`.
+    
+    - `sb`: Swaps the first two elements of list `b`.
+    
+    - `ss`: Performs `sa` and `sb` simultaneously.
+    
+    - `pb`: Pushes the top element from list `a` to list `b`.
+    
+    - `pa`: Pushes the top element from list `b` to list `a`.
+    
+    - Each function prints the corresponding operation (e.g., `"sa\n"`, `"pb\n"`).
+
